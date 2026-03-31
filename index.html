@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+  <title>XV Años – Yadira Lizeth</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       PÉTALOS — caen sobre toda la pantalla
+  ══════════════════════════════════════ -->
+  <div class="petals">
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       ESTRELLAS — generadas por script.js
+  ══════════════════════════════════════ -->
+  <div id="stars"></div>
+
+
+  <!-- ════════════════════════════════════════════════
+       PORTADA — pantalla principal
+  ════════════════════════════════════════════════ -->
+  <div id="portada">
+
+    <!-- ── 🖼️ FONDO ──────────────────────────────────
+         Imagen : img/caratula.png
+         Tamaño : styles.css → .portada-fondo → background-size
+         Posición: styles.css → .portada-fondo → background-position
+    ─────────────────────────────────────────────── -->
+    <div class="portada-fondo"></div>
+
+
+    <!-- ── 🖼️ CORONA ──────────────────────────────────
+         Imagen  : img/corona.png
+         Tamaño  : styles.css → .corona → width / max-width
+         Altura  : styles.css → .corona → top
+    ─────────────────────────────────────────────── -->
+    <img src="img/corona.png" alt="corona" class="corona"/>
+
+
+    <!-- ── ✍️ NOMBRE CON CURVA ────────────────────────
+         Texto   : cambia "Yadira Lizeth" en el tspan de abajo
+         Tamaño  : cambia font-size="42" (más grande = número mayor)
+         Grosor  : cambia font-weight="900" (700=bold / 900=black)
+         Fuente  : cambia font-family abajo
+         Curva   : el arco está en d="M 10,80 Q 170,20 330,80"
+                   Q 170,20 → baja el 20 para más curva (ej: 0 o -10)
+                              sube el 20 para menos curva (ej: 40 o 60)
+         Altura  : styles.css → .nombre-svg → top
+         Ancho   : styles.css → .nombre-svg → width / max-width
+    ─────────────────────────────────────────────── -->
+    <svg class="nombre-svg" viewBox="0 0 340 100" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Arco invisible por donde camina el texto -->
+        <path id="curva-nombre" d="M 10,80 Q 170,20 330,80"/>
+      </defs>
+      <text
+        font-family="'Playfair Display', serif"
+        font-size="38"
+        font-weight="900"
+        font-style="italic"
+        fill="#3a1f58"
+        filter="url(#sombra-nombre)"
+      >
+        <!-- ✏️ Cambia el texto aquí -->
+        <textPath href="#curva-nombre" startOffset="50%" text-anchor="middle">
+          Yadira Lizeth
+        </textPath>
+      </text>
+      <defs>
+        <filter id="sombra-nombre" x="-10%" y="-30%" width="120%" height="160%">
+          <feDropShadow dx="0" dy="2" stdDeviation="2"
+            flood-color="rgba(255,255,255,0.6)" flood-opacity="1"/>
+        </filter>
+      </defs>
+    </svg>
+
+
+    <!-- ── ✍️ TEXTO MIS XV AÑOS ──────────────────────
+         Tamaño MIS/AÑOS : styles.css → .mis-xv__mis / .mis-xv__anios → font-size
+         Tamaño XV       : styles.css → .mis-xv__numero → font-size
+         Grosor          : styles.css → font-weight
+         Altura          : styles.css → .mis-xv → top
+    ─────────────────────────────────────────────── -->
+    <div class="mis-xv">
+      <span class="mis-xv__mis">MIS</span>
+      <span class="mis-xv__numero">XV</span>
+      <span class="mis-xv__anios">AÑOS</span>
+    </div>
+
+
+    <!-- ── 🖼️ SOBRE ──────────────────────────────────
+         Imagen sobre : img/sobre.png
+         Tamaño sobre : styles.css → .sobre → width
+         Altura sobre : styles.css → .sobre-link → top
+         Destino link : cambia href="invitacion.html" si renombras el archivo
+    ─────────────────────────────────────────────── -->
+    <img
+      src="img/sobre.png"
+      alt="Abrir invitación"
+      class="sobre"
+      onclick="irAInvitacion()"
+      style="cursor:pointer; pointer-events:visiblePainted;"
+    />
+
+    <!-- ── ✍️ HINT "Toca para abrir" ─────────────────
+         Texto  : cambia el texto abajo
+         Altura : styles.css → .sobre-hint → top
+         Tamaño : styles.css → .sobre-hint → font-size
+    ─────────────────────────────────────────────── -->
+    <p class="sobre-hint">✨ Toca para abrir ✨</p>
+
+  </div>
+  <!-- /portada -->
+
+  <script src="script.js"></script>
+</body>
+</html>

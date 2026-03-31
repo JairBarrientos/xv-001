@@ -1,0 +1,587 @@
+/* ══════════════════════════════════════════════════
+   XV AÑOS — YADIRA LIZETH
+   styles.css
+══════════════════════════════════════════════════ */
+
+
+/* ════════════════════════════════════════
+   RESET Y BASE
+════════════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  overflow-x: hidden;
+  background: #e8d8f5;
+}
+
+
+/* ════════════════════════════════════════
+   PÉTALOS CAYENDO
+════════════════════════════════════════ */
+.petals {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.petal {
+  position: absolute;
+  top: -60px;
+  width: 16px;
+  height: 20px;
+  background: radial-gradient(ellipse at 40% 30%, #e8c8f0, #c48ccc88);
+  border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+  opacity: 0;
+  animation: petal-caer linear infinite;
+}
+
+.petal:nth-child(1)  { left: 5%;  width: 13px; height: 17px; animation-duration: 7s;   animation-delay: 0s;   }
+.petal:nth-child(2)  { left: 14%; width: 10px; height: 13px; animation-duration: 9s;   animation-delay: 1.2s; background: radial-gradient(ellipse, #d4a8e8, #b07cc088); }
+.petal:nth-child(3)  { left: 27%; width: 15px; height: 19px; animation-duration: 8s;   animation-delay: 2.5s; }
+.petal:nth-child(4)  { left: 39%; width: 11px; height: 15px; animation-duration: 11s;  animation-delay: 0.8s; background: radial-gradient(ellipse, #f0d0f8, #cc9ce0); }
+.petal:nth-child(5)  { left: 54%; width: 18px; height: 22px; animation-duration: 7.5s; animation-delay: 3.1s; }
+.petal:nth-child(6)  { left: 67%; width: 11px; height: 14px; animation-duration: 10s;  animation-delay: 1.7s; background: radial-gradient(ellipse, #e0b8f0, #a870c0aa); }
+.petal:nth-child(7)  { left: 79%; width: 14px; height: 18px; animation-duration: 8.5s; animation-delay: 4.0s; }
+.petal:nth-child(8)  { left: 89%; width: 12px; height: 16px; animation-duration: 9.5s; animation-delay: 2.0s; background: radial-gradient(ellipse, #f4daf8, #c890d8); }
+.petal:nth-child(9)  { left: 21%; width: 9px;  height: 12px; animation-duration: 12s;  animation-delay: 5.5s; }
+.petal:nth-child(10) { left: 71%; width: 16px; height: 20px; animation-duration: 6.5s; animation-delay: 0.3s; background: radial-gradient(ellipse, #ddb8ec, #b07cc0); }
+
+@keyframes petal-caer {
+  0%   { transform: translateY(0) rotate(0deg) translateX(0);    opacity: 0; }
+  10%  { opacity: 0.75; }
+  90%  { opacity: 0.5; }
+  100% { transform: translateY(110vh) rotate(360deg) translateX(35px); opacity: 0; }
+}
+
+
+/* ════════════════════════════════════════
+   ESTRELLAS
+════════════════════════════════════════ */
+#stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 998;
+  width: 100vw;
+  height: 100vh;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: star-titilar ease-in-out infinite;
+}
+
+@keyframes star-titilar {
+  0%, 100% { opacity: 0;   transform: scale(0.5); }
+  50%       { opacity: 0.9; transform: scale(1.3); }
+}
+
+
+/* ════════════════════════════════════════
+   PORTADA — contenedor principal
+════════════════════════════════════════ */
+#portada {
+  position: relative;
+  width: min(480px, 100vw);           /* ✏️ ancho máximo */
+  aspect-ratio: 2 / 3;               /* ✏️ proporción = misma que caratula.png */
+  max-height: 100dvh;
+  margin: 0 auto;
+  overflow: hidden;
+  container-type: inline-size;
+}
+
+
+/* ══════════════════════════════════════════════════
+   🖼️ PORTADA — fondo: caratula.png
+   ✏️ TAMAÑO   → background-size
+   ✏️ POSICIÓN → background-position
+══════════════════════════════════════════════════ */
+.portada-fondo {
+  position: absolute;
+  inset: 0;
+  background-image: url('img/caratula.png');
+  background-size: cover;
+  background-position: center top;   /* ✏️ top / center / bottom */
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+
+/* ══════════════════════════════════════════════════
+   🖼️ PORTADA — corona.png
+   ✏️ ALTURA  → top   (sube: baja número | baja: sube número)
+   ✏️ TAMAÑO  → width (más grande: sube | más chica: baja)
+══════════════════════════════════════════════════ */
+.corona {
+  position: absolute;
+  top: 14%;                           /* ✏️ ALTURA */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 45cqw;                       /* ✏️ TAMAÑO */
+  filter: drop-shadow(0 4px 18px rgba(120, 60, 180, 0.35));
+  animation: corona-flotar 3.5s ease-in-out infinite;
+}
+
+
+/* ══════════════════════════════════════════════════
+   ✍️ PORTADA — nombre curvo: "Yadira Lizeth"
+   ✏️ ALTURA  → top
+   ✏️ TAMAÑO  → width
+   ✏️ CURVA   → en index.html busca Q 170,20
+                baja el 20 = más curva | sube el 20 = menos curva
+   ✏️ FUENTE  → font-family en el SVG de index.html
+   ✏️ GROSOR  → font-weight en el SVG de index.html
+══════════════════════════════════════════════════ */
+.nombre-svg {
+  position: absolute;
+  top: 28%;                           /* ✏️ ALTURA */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 84cqw;                       /* ✏️ TAMAÑO */
+  overflow: visible;
+}
+
+
+/* ══════════════════════════════════════════════════
+   ✍️ PORTADA — texto: "MIS XV AÑOS"
+   ✏️ ALTURA  → top
+══════════════════════════════════════════════════ */
+.mis-xv {
+  position: absolute;
+  top: 38.7%;                         /* ✏️ ALTURA */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.mis-xv__mis,
+.mis-xv__anios {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 4cqw;                    /* ✏️ TAMAÑO */
+  font-weight: 700;
+  letter-spacing: .55em;
+  color: #3a1f58;
+  text-shadow: 0 1px 6px rgba(255,255,255,0.5);
+}
+
+.mis-xv__numero {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 6cqw;                    /* ✏️ TAMAÑO */
+  font-weight: 900;
+  letter-spacing: .15em;
+  color: #3a1f58;
+  line-height: 1.1;
+  text-shadow:
+    0 2px 12px rgba(255,255,255,0.45),
+    0 1px 0 rgba(255,255,255,0.3);
+}
+
+
+/* ══════════════════════════════════════════════════
+   🖼️ PORTADA — sobre.png
+   ✏️ ALTURA  → top
+   ✏️ TAMAÑO  → width
+══════════════════════════════════════════════════ */
+.sobre {
+  position: absolute;
+  top: 46%;                           /* ✏️ ALTURA */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 80cqw;                       /* ✏️ TAMAÑO */
+  filter: drop-shadow(0 6px 20px rgba(100, 40, 150, 0.3));
+  animation: sobre-flotar 4s ease-in-out infinite;
+  transition: filter .3s ease;
+}
+
+.sobre:hover,
+.sobre:active {
+  filter: drop-shadow(0 8px 28px rgba(100, 40, 150, 0.55));
+}
+
+@keyframes sobre-flotar {
+  0%, 100% { transform: translateX(-50%) translateY(0px) rotate(0deg); }
+  50%       { transform: translateX(-50%) translateY(-6px) rotate(.5deg); }
+}
+
+
+/* ══════════════════════════════════════════════════
+   ✍️ PORTADA — texto: "✨ Toca para abrir ✨"
+   ✏️ ALTURA  → top
+   ✏️ TAMAÑO  → font-size
+══════════════════════════════════════════════════ */
+.sobre-hint {
+  position: absolute;
+  top: 78%;                           /* ✏️ ALTURA */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  white-space: nowrap;
+  font-family: 'Playfair Display', serif;
+  font-size: 3cqw;                    /* ✏️ TAMAÑO */
+  font-weight: 700;
+  color: #7b4fa0;
+  opacity: .85;
+  letter-spacing: .06em;
+}
+
+
+/* ══════════════════════════════════════════════════
+   🔙 PORTADA — botón "Volver"
+   ✏️ TAMAÑO  → font-size
+   ✏️ COLOR   → color
+══════════════════════════════════════════════════ */
+.btn-volver {
+  margin-top: 32px;
+  font-family: 'Cinzel Decorative', serif;
+  font-size: .82rem;                  /* ✏️ TAMAÑO */
+  font-weight: 700;
+  letter-spacing: .1em;
+  color: #7b4fa0;                     /* ✏️ COLOR */
+  text-decoration: none;
+  opacity: .7;
+  transition: opacity .2s;
+  position: relative;
+  z-index: 3;
+}
+.btn-volver:hover { opacity: 1; }
+
+/* ══════════════════════════════════════════════════════════════
+   ▼▼▼  INVITACIÓN — TODO LO DE ABAJO ES DE LA PÁGINA DE INV  ▼▼▼
+══════════════════════════════════════════════════════════════ */
+
+/* ════════════════════════════════════════
+   INVITACIÓN — wrapper
+════════════════════════════════════════ */
+.inv-wrapper {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: transparent;
+}
+
+/* ════════════════════════════════════════
+   PANTALLA 1 — contenedor
+════════════════════════════════════════ */
+.inv-pagina {
+  width: min(480px, 100vw);
+  height: 100svh;
+  position: relative;
+  z-index: 2;
+  container-type: inline-size;
+}
+
+/* ════════════════════════════════════════
+   🖼️ Fondo view_1.png
+════════════════════════════════════════ */
+.inv-fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100svh;
+  background-image: url('img/view_1.png');
+  background-size: 100% 100%;
+  background-position: center top;
+  background-repeat: no-repeat;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ════════════════════════════════════════
+   🖼️ Corona
+════════════════════════════════════════ */
+.inv-corona-img {
+  position: absolute;
+  top: 6%;                            /* ✏️ ALTURA */
+  left: 47.5%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 50cqw;                       /* ✏️ TAMAÑO */
+  filter: drop-shadow(0 4px 16px rgba(180,80,220,0.3));
+}
+
+/* ════════════════════════════════════════
+   🖼️ XV
+════════════════════════════════════════ */
+.inv-xv-img {
+  position: absolute;
+  top: 22%;                           /* ✏️ ALTURA */
+  left: 59%;                          /* ✏️ POSICIÓN */
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 70cqw;                       /* ✏️ TAMAÑO */
+  filter: drop-shadow(0 4px 16px rgba(180,80,220,0.3));
+}
+
+/* ════════════════════════════════════════
+   🖼️ Princesa
+════════════════════════════════════════ */
+.inv-princesa-img {
+  position: absolute;
+  top: 9%;                            /* ✏️ ALTURA */
+  left: 36%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 90cqw;                       /* ✏️ TAMAÑO */
+  filter: drop-shadow(0 4px 18px rgba(120,60,180,0.35));
+}
+
+/* ════════════════════════════════════════
+   🦋 Mariposa
+════════════════════════════════════════ */
+.inv-mariposa-img {
+  position: absolute;
+  top: -2%;                           /* ✏️ ALTURA */
+  left: 74%;                          /* ✏️ POSICIÓN */
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 28cqw;                       /* ✏️ TAMAÑO */
+  filter: drop-shadow(0 4px 16px rgba(180,80,220,0.3));
+  animation: mariposa-volar 4s ease-in-out infinite;
+}
+
+@keyframes mariposa-volar {
+  0%   { transform: translateX(-50%) translateX(0cqw)  translateY(0%)  rotate(-5deg); }
+  25%  { transform: translateX(-50%) translateX(2cqw)  translateY(-2%) rotate(3deg);  }
+  50%  { transform: translateX(-50%) translateX(4cqw)  translateY(0%)  rotate(-3deg); }
+  75%  { transform: translateX(-50%) translateX(2cqw)  translateY(2%)  rotate(5deg);  }
+  100% { transform: translateX(-50%) translateX(0cqw)  translateY(0%)  rotate(-5deg); }
+}
+
+/* ════════════════════════════════════════
+   👸 MIS / AÑOS
+════════════════════════════════════════ */
+.inv-hero {
+  position: absolute;
+  top: 25%;                           /* ✏️ ALTURA */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+
+.inv-mis-xv-titulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin-top: 7px;
+}
+
+.inv-mis {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 7cqw;                    /* ✏️ TAMAÑO */
+  font-weight: 700;
+  letter-spacing: .05em;
+  color: #3a1f58;
+  position: relative;
+  top: 0cqw;
+  left: -1cqw;
+}
+
+.inv-anos {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 7cqw;                    /* ✏️ TAMAÑO */
+  font-weight: 700;
+  letter-spacing: .05em;
+  color: #3a1f58;
+  position: relative;
+  top: 17cqw;
+  left: 12cqw;
+}
+
+/* ════════════════════════════════════════
+   PANTALLA 2 — contenedor
+════════════════════════════════════════ */
+.inv-fondo-2-wrapper {
+  width: min(480px, 100vw);
+  height: 100svh;
+  position: relative;
+  container-type: inline-size;
+}
+
+/* ════════════════════════════════════════
+   🖼️ Fondo view_2.png
+════════════════════════════════════════ */
+.inv-fondo-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('img/view_2.png');
+  background-size: 100% 100%;
+  background-position: center top;
+  background-repeat: no-repeat;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ════════════════════════════════════════
+   🖼️ Separador 1
+════════════════════════════════════════ */
+.inv-separador-1-img {
+  position: absolute;
+  top: -22.5svh;                        /* ✏️ ALTURA */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 75cqw;                       /* ✏️ TAMAÑO */
+  pointer-events: none;
+}
+
+/* ════════════════════════════════════════
+   📦 Cuadro principal
+════════════════════════════════════════ */
+.inv-cuadro {
+  position: relative;
+  top: -1svh;                         /* ✏️ ALTURA */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 78cqw;                       /* ✏️ ANCHO */
+  min-height: 71.5svh;                  /* ✏️ ALTO — sube para más espacio */
+  background: rgba(248, 220, 255, 0.72);
+  border: 1.5px solid rgba(180, 100, 220, 0.25);
+  border-radius: 18px;
+  padding: 22px 20px;
+  box-shadow: 0 4px 24px rgba(160, 80, 200, 0.10);
+  position: relative;
+}
+
+/* ── texto 1 — arriba del reproductor ── */
+.inv-cuadro .texto-1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.8cqw;                  /* ✏️ TAMAÑO */
+  font-weight: 400;
+  color: #3a1f58;
+  line-height: 1.7;
+  text-align: center;
+  margin: 0;
+}
+
+/* ── texto 2 — debajo del reproductor ── */
+.inv-cuadro .texto-2 {
+  position: absolute;               /* ← independiente */
+  top: 27svh;                       /* ✏️ ajusta tú mismo */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  font-family: 'Cormorant', serif;
+  font-size: 3.8cqw;
+  font-weight: 300;
+  color: #3a1f58;
+  line-height: 1.7;
+  text-align: center;
+  margin: 0;
+}
+
+/* ── texto 2 — debajo del reproductor ── */
+.inv-cuadro .texto-3 {
+  position: absolute;               /* ← independiente */
+  top: 51svh;                       /* ✏️ ajusta tú mismo */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  font-family: 'Cormorant', serif;
+  font-size: 3.8cqw;
+  font-weight: 300;
+  color: #3a1f58;
+  line-height: 1.7;
+  text-align: center;
+  margin: 0;
+}
+
+/* ════════════════════════════════════════
+   🎵 Reproductor
+════════════════════════════════════════ */
+.inv-reproductor-img {
+  position: absolute;
+  top: 5.5svh;                        /* ✏️ ALTURA */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  width: 65cqw;                       /* ✏️ TAMAÑO */
+  pointer-events: none;
+}
+
+/* ════════════════════════════════════════
+   ❤️ Corazón — botón música
+════════════════════════════════════════ */
+.inv-corazon-img {
+  position: absolute;
+  top: 17.4svh;                       /* ✏️ ALTURA */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  width: 9.5cqw;                      /* ✏️ TAMAÑO */
+  pointer-events: all;
+  cursor: pointer;
+  animation: corazon-latir 1.8s ease-in-out infinite;
+}
+
+@keyframes corazon-latir {
+  0%   { transform: translateX(-50%) scale(1);    filter: drop-shadow(0 0 2px rgba(180,80,220,0.3)); }
+  15%  { transform: translateX(-50%) scale(1.15); filter: drop-shadow(0 0 12px rgba(180,80,220,0.9)); }
+  30%  { transform: translateX(-50%) scale(1);    filter: drop-shadow(0 0 2px rgba(180,80,220,0.3)); }
+  100% { transform: translateX(-50%) scale(1);    filter: drop-shadow(0 0 2px rgba(180,80,220,0.3)); }
+}
+
+/* ════════════════════════════════════════
+   🦋 Mariposa V1.1
+════════════════════════════════════════ */
+.inv-mariposa-v1p1-img {
+  position: absolute;
+  top: 0%;                           /* ✏️ ALTURA */
+  left: 12%;                          /* ✏️ POSICIÓN */
+  transform: translateX(-50%);
+  z-index: 10;
+  width: 30cqw;                       /* ✏️ TAMAÑO */
+  filter: drop-shadow(0 4px 16px rgba(180,80,220,0.3));
+  animation: mariposa-volar 4s ease-in-out infinite;
+}
+
+/* ════════════════════════════════════════
+   🖼️ Separador 2
+════════════════════════════════════════ */
+.inv-separador-2-img {
+  position: absolute;
+  top: 61.5svh;                        /* ✏️ ALTURA */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 75cqw;                       /* ✏️ TAMAÑO */
+  pointer-events: none;
+}

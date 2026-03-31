@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+  <title>Invitación – Yadira Lizeth</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Cormorant+SC:wght@300;400;500;600;700&family=Pinyon+Script&family=Fleur+De+Leah&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    body {
+      animation: entrada-suave 1.2s ease forwards;
+    }
+    @keyframes entrada-suave {
+      0%   { background: #1a0030; }
+      100% { background: #e8d8f5; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🌸 Pétalos y estrellas -->
+  <div class="petals">
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="petal"></div>
+  </div>
+  <div id="stars"></div>
+
+  <div class="inv-wrapper">
+
+    <!-- ══════════════════════════════════
+         PANTALLA 1 — view_1.png
+    ══════════════════════════════════ -->
+    <div class="inv-pagina">
+
+      <!-- 🖼️ Fondo -->
+      <div class="inv-fondo"></div>
+
+      <!-- 🖼️ Corona -->
+      <img src="img/corona.png" alt="corona" class="inv-corona-img"/>
+
+      <!-- 🖼️ XV -->
+      <img src="img/xv.png" alt="xv" class="inv-xv-img"/>
+
+      <!-- 🖼️ Princesa -->
+      <img src="img/princesa.png" alt="princesa" class="inv-princesa-img"/>
+
+      <!-- 🦋 Mariposa -->
+      <img src="img/mariposa.png" alt="mariposa" class="inv-mariposa-img"/>
+
+      <!-- 👸 MIS / AÑOS -->
+      <div class="inv-hero">
+        <div class="inv-mis-xv-titulo">
+          <span class="inv-mis">MIS</span>
+          <span class="inv-anos">AÑOS</span>
+        </div>
+      </div>
+
+      <!-- 🔙 Botón volver -->
+      <a href="index.html" class="btn-volver">← Volver</a>
+
+    </div>
+    <!-- fin pantalla 1 -->
+
+    <!-- ══════════════════════════════════
+         PANTALLA 2 — view_2.png
+    ══════════════════════════════════ -->
+    <div class="inv-fondo-2-wrapper">
+
+      <!-- 🖼️ Fondo -->
+      <div class="inv-fondo-2"></div>
+
+      <!-- 🖼️ Separador -->
+      <img src="img/separador.png" alt="separador" class="inv-separador-1-img"/>
+
+      <div class="inv-cuadro">
+
+          <!-- texto 1 -->
+          <p class="texto-1">Toca el corazón y deja que la melodía te envuelva ...</p>
+          
+          <!-- texto 2  ← AQUÍ adentro -->
+          <p class="texto-2">Hoy mi corazón se llena de alegría al llegar a esta etapa tan especial de mi vida.
+            Entre sueños que comienzan a florecer y recuerdos que guardaré por siempre, doy un paso hacia un nuevo camino lleno de ilusiones.
+            </p>
+          <p class="texto-3">Con el amor de mi familia y la bendición de Dios, deseo compartir contigo este día tan significativo… porque tu presencia hará aún más hermoso este momento.
+            </p>
+
+      </div>
+
+      <!-- ❤️ Audio -->
+      <!-- 🎵 Reproductor y corazón dentro del cuadro -->
+        <img src="img/reproductor.png" alt="reproductor" class="inv-reproductor-img"/>
+        <img src="img/corazon.png" alt="corazón" class="inv-corazon-img" onclick="toggleCorazon(this)"/>
+        <audio id="audioInv" loop>
+          <source src="music/musica.mp3" type="audio/mpeg"/>
+        </audio>
+
+      <!-- 🦋 Mariposa -->
+      <img src="img/mariposa_v1.1.png" alt="mariposa_v1.1" class="inv-mariposa-v1p1-img"/>
+
+      <!-- 🖼️ Separador -->
+      <img src="img/separador.png" alt="separador" class="inv-separador-2-img"/>
+
+    </div>
+    <!-- fin pantalla 2 -->
+
+  </div>
+  <!-- fin inv-wrapper -->
+
+  <script src="script.js"></script>
+</body>
+</html>
