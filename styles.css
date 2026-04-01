@@ -3,6 +3,9 @@
    styles.css
 ══════════════════════════════════════════════════ */
 
+:root {
+  color-scheme: light only;
+}
 
 /* ════════════════════════════════════════
    RESET Y BASE
@@ -583,5 +586,184 @@ body {
   transform: translateX(-50%);
   z-index: 3;
   width: 75cqw;                       /* ✏️ TAMAÑO */
+  pointer-events: none;
+}
+
+/* ════════════════════════════════════════
+   PANTALLA 3 — contenedor
+════════════════════════════════════════ */
+.inv-fondo-3-wrapper {
+  width: min(480px, 100vw);
+  height: 100svh;
+  position: relative;
+  container-type: inline-size;
+}
+
+/* ════════════════════════════════════════
+   🖼️ Fondo view_3.png
+════════════════════════════════════════ */
+.inv-fondo-3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('img/view_3.png');
+  background-size: 100% 100%;
+  background-position: center top;
+  background-repeat: no-repeat;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.inv-mis-padres-titulo {
+  position: absolute;
+  top: -18svh;                         /* ✏️ ajusta */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 80cqw;
+  font-family: 'Great Vibes', cursive;   /* ✏️ prueba esta primero */
+  font-size: 8cqw;
+  font-weight: 700;
+  color: #b07cc0;
+  text-align: center;
+}
+
+.inv-mis-padres-y {
+  position: absolute;
+  top: -3.5svh;                        /* ✏️ ajusta */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  font-family: 'Great Vibes', cursive;   /* ✏️ prueba esta primero */
+  font-size: 8cqw;
+  color: #2a1040;
+  text-align: center;
+}
+
+.inv-mis-padres-nombre-1 {
+  position: absolute;
+  top: -9svh;                        /* ✏️ ajusta */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 90cqw;
+  font-family: 'Great Vibes', cursive;   /* ✏️ prueba esta primero */
+  font-size: 8cqw;
+  color: #2a1040;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.inv-mis-padres-nombre-2 {
+  position: absolute;
+  top: 4svh;                        /* ✏️ ajusta */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 90cqw;
+  font-family: 'Great Vibes', cursive;   /* ✏️ prueba esta primero */
+  font-size: 8cqw;
+  color: #2a1040;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.inv-rama-img {
+  position: absolute;
+  top: -21.6svh;                        /* ✏️ ALTURA */
+  left: 89.8%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 20cqw;                       /* ✏️ TAMAÑO */
+  pointer-events: none;
+}
+
+.inv-cascada-flor-img {
+  position: absolute;
+  top: -22svh;                        /* ✏️ ALTURA */
+  left: 8%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 20cqw;                       /* ✏️ TAMAÑO */
+  pointer-events: none;
+}
+
+.inv-cruz-img {
+  position: absolute;
+  top: -9.1svh;                        /* ✏️ ALTURA */
+  left: 87.4%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 6.5cqw;                       /* ✏️ TAMAÑO */
+  pointer-events: none;
+}
+
+.inv-marco-img {
+  position: absolute;
+  top: 24svh;                        /* ✏️ ALTURA */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 90cqw;                       /* ✏️ TAMAÑO */
+  pointer-events: none;
+}
+
+.texto-4 {
+  position: absolute;               /* ← independiente */
+  top: 14svh;                       /* ✏️ ajusta tú mismo */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  font-family: 'Cormorant', serif;
+  font-size: 3.8cqw;
+  font-weight: 300;
+  color: #3a1f58;
+  line-height: 1.7;
+  text-align: center;
+  margin: 0;
+}
+
+.texto-5 {
+  position: absolute;               /* ← independiente */
+  top: 42svh;                       /* ✏️ ajusta tú mismo */
+  left: 46%;
+  transform: translateX(-50%);
+  width: 20%;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 10cqw;
+  font-weight: 100;
+  color: #8b6aaa;
+  line-height: 1.2;
+  text-align: center;
+  margin: 0;
+}
+
+/* ════════════════════════════════════════
+   PANTALLA 4 — contenedor
+════════════════════════════════════════ */
+.inv-fondo-4-wrapper {
+  width: min(480px, 100vw);
+  height: 100svh;
+  position: relative;
+  container-type: inline-size;
+}
+
+/* ════════════════════════════════════════
+   🖼️ Fondo view_4.png
+════════════════════════════════════════ */
+.inv-fondo-4 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('img/view_4.png');
+  background-size: 100% 100%;
+  background-position: center top;
+  background-repeat: no-repeat;
+  z-index: 0;
   pointer-events: none;
 }
